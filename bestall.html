@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="sv">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beställ Calm Paws</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <header class="header container">
+    <div class="brand"><h1>🐾 Calm Paws</h1></div>
+    <nav class="nav">
+      <a href="index.html" data-lang-sv>Hem</a>
+      <a href="om.html" data-lang-sv>Om</a>
+      <a href="sa-fungerar-det.html" data-lang-sv>Så fungerar det</a>
+      <a href="faq.html" data-lang-sv>FAQ</a>
+      <a href="kontakt.html" data-lang-sv>Kontakt</a>
+      <a href="bestall.html" class="btn" data-lang-sv>Beställ</a>
+
+      <a href="index.html" data-lang-en style="display:none">Home</a>
+      <a href="om.html" data-lang-en style="display:none">About</a>
+      <a href="sa-fungerar-det.html" data-lang-en style="display:none">How it works</a>
+      <a href="faq.html" data-lang-en style="display:none">FAQ</a>
+      <a href="kontakt.html" data-lang-en style="display:none">Contact</a>
+      <a href="bestall.html" class="btn" data-lang-en style="display:none">Order</a>
+    </nav>
+    <div class="langswitch">
+      <button id="sv-btn" class="active">🇸🇪</button>
+      <button id="en-btn">🇬🇧</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section card">
+      <h2 data-lang-sv>Beställ Calm Paws</h2>
+      <h2 data-lang-en style="display:none">Order Calm Paws</h2>
+
+      <form id="order-form" style="margin-top:12px">
+        <label class="small" data-lang-sv>Namn</label>
+        <label class="small" data-lang-en style="display:none">Name</label><br>
+        <input id="name" type="text" required style="padding:10px;width:100%;margin-top:6px;border-radius:8px;border:1px solid #eee"><br><br>
+
+        <label class="small" data-lang-sv>Adress</label>
+        <label class="small" data-lang-en style="display:none">Address</label><br>
+        <input id="address" type="text" required style="padding:10px;width:100%;margin-top:6px;border-radius:8px;border:1px solid #eee"><br><br>
+
+        <label class="small" data-lang-sv>E-post</label>
+        <label class="small" data-lang-en style="display:none">Email</label><br>
+        <input id="email" type="email" required style="padding:10px;width:100%;margin-top:6px;border-radius:8px;border:1px solid #eee"><br><br>
+
+        <label class="small" data-lang-sv>Antal</label>
+        <label class="small" data-lang-en style="display:none">Quantity</label><br>
+        <input id="qty" type="number" value="1" min="1" style="padding:10px;width:120px;margin-top:6px;border-radius:8px;border:1px solid #eee"><br><br>
+
+        <div class="small" data-lang-sv>Pris per styck: 249 kr (frakt tillkommer)</div>
+        <div class="small" data-lang-en style="display:none">Price per item: 249 SEK (shipping extra)</div>
+
+        <div style="margin-top:14px">
+          <!-- Placeholder Stripe Checkout link - replace with your real Stripe Checkout session URL -->
+          <button type="button" id="pay-btn" class="btn" data-lang-sv>Betala med kort (Stripe)</button>
+          <button type="button" id="pay-btn-en" class="btn" data-lang-en style="display:none">Pay with card (Stripe)</button>
+        </div>
+      </form>
+
+      <p class="small" style="margin-top:12px" data-lang-sv>Efter betalning får du en bekräftelse via e-post.</p>
+      <p class="small" style="margin-top:12px;display:none" data-lang-en>After payment you will receive an email confirmation.</p>
+    </section>
+  </main>
+
+  <footer class="footer container"><div data-lang-sv>© 2025 Calm Paws</div><div data-lang-en style="display:none">© 2025 Calm Paws</div></footer>
+
+<script>
+// Language switcher (same as other pages)
+function setLang(lang){
+  document.querySelectorAll('[data-lang-sv]').forEach(function(el){ el.style.display = (lang==='sv'?'':'none'); });
+  document.querySelectorAll('[data-lang-en]').forEach(function(el){ el.style.display = (lang==='en'?'':'none'); });
+  document.getElementById('sv-btn').classList.toggle('active', lang==='sv');
+  document.getElementById('en-btn').classList.toggle('active', lang==='en');
+  localStorage.setItem('calmpaws_lang', lang);
+}
+document.getElementById('sv-btn').addEventListener('click',function(){ setLang('sv'); });
+document.getElementById('en-btn').addEventListener('click',function(){ setLang('en'); });
+document.addEventListener('DOMContentLoaded', function(){ const lang = localStorage.getItem('calmpaws_lang') || 'sv'; setLang(lang); });
+
+// Stripe placeholder behavior: construct a query with order details and open placeholder URL.
+// Replace STRIPE_CHECKOUT_URL with your real Stripe Checkout session URL or server endpoint.
+document.addEventListener('DOMContentLoaded', function(){
+  var pay = document.getElementById('pay-btn');
+  var payEn = document.getElementById('pay-btn-en');
+  if(pay){
+    pay.addEventListener('click', function(){
+      var name = encodeURIComponent(document.getElementById('name').value||'Kund');
+      var email = encodeURIComponent(document.getElementById('email').value||'');
+      var qty = parseInt(document.getElementById('qty').value||1,10);
+      var STRIPE_CHECKOUT_URL = 'https://checkout.stripe.com/pay/PLACEHOLDER';
+      var url = STRIPE_CHECKOUT_URL + '?name=' + name + '&email=' + email + '&qty=' + qty;
+      window.open(url, '_blank');
+    });
+  }
+  if(payEn){
+    payEn.addEventListener('click', function(){ if(pay) pay.click(); });
+  }
+});
+</script>
+</body>
+</html>

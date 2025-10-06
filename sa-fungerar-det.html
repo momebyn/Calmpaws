@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="sv">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Så fungerar det</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <header class="header container">
+    <div class="brand"><h1>🐾 Calm Paws</h1></div>
+    <nav class="nav">
+      <a href="index.html" data-lang-sv>Hem</a>
+      <a href="om.html" data-lang-sv>Om</a>
+      <a href="sa-fungerar-det.html" data-lang-sv>Så fungerar det</a>
+      <a href="faq.html" data-lang-sv>FAQ</a>
+      <a href="kontakt.html" data-lang-sv>Kontakt</a>
+      <a href="bestall.html" class="btn" data-lang-sv>Beställ</a>
+
+      <a href="index.html" data-lang-en style="display:none">Home</a>
+      <a href="om.html" data-lang-en style="display:none">About</a>
+      <a href="sa-fungerar-det.html" data-lang-en style="display:none">How it works</a>
+      <a href="faq.html" data-lang-en style="display:none">FAQ</a>
+      <a href="kontakt.html" data-lang-en style="display:none">Contact</a>
+      <a href="bestall.html" class="btn" data-lang-en style="display:none">Order</a>
+    </nav>
+    <div class="langswitch">
+      <button id="sv-btn" class="active">🇸🇪</button>
+      <button id="en-btn">🇬🇧</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section card">
+      <h2 data-lang-sv>Så använder du Calm Paws</h2>
+      <h2 data-lang-en style="display:none">How to use Calm Paws</h2>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h4 data-lang-sv>1. Placera</h4>
+          <h4 data-lang-en style="display:none">1. Place</h4>
+          <p class="small" data-lang-sv">Ställ diffusern i närheten av hundens favoritplats.</p>
+          <p class="small" data-lang-en style="display:none">Place the diffuser near your dog's favorite spot.</p>
+        </div>
+        <div class="card">
+          <h4 data-lang-sv>2. Dosera</h4>
+          <h4 data-lang-en style="display:none">2. Dose</h4>
+          <p class="small" data-lang-sv">Använd 3–5 droppar för ett normalt rum, mer vid större ytor.</p>
+          <p class="small" data-lang-en style="display:none">Use 3–5 drops for a normal room, more for larger spaces.</p>
+        </div>
+        <div class="card">
+          <h4 data-lang-sv>3. Njut</h4>
+          <h4 data-lang-en style="display:none">3. Enjoy</h4>
+          <p class="small" data-lang-sv">Låt doften sprida sig och ge din hund en tryggare miljö.</p>
+          <p class="small" data-lang-en style="display:none">Let the scent spread and offer your dog a calmer environment.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;text-align:center">
+        <img src="bilder/calmpaws.jpg" alt="Calm Paws" class="prod-img">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container"><div data-lang-sv>© 2025 Calm Paws</div><div data-lang-en style="display:none">© 2025 Calm Paws</div></footer>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-lang-sv]').forEach(function(el){ el.style.display = (lang==='sv'?'':'none'); });
+  document.querySelectorAll('[data-lang-en]').forEach(function(el){ el.style.display = (lang==='en'?'':'none'); });
+  document.getElementById('sv-btn').classList.toggle('active', lang==='sv');
+  document.getElementById('en-btn').classList.toggle('active', lang==='en');
+  localStorage.setItem('calmpaws_lang', lang);
+}
+document.getElementById('sv-btn').addEventListener('click',function(){ setLang('sv'); });
+document.getElementById('en-btn').addEventListener('click',function(){ setLang('en'); });
+document.addEventListener('DOMContentLoaded', function(){ const lang = localStorage.getItem('calmpaws_lang') || 'sv'; setLang(lang); });
+</script>
+</body>
+</html>

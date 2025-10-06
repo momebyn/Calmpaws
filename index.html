@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calm Paws – Lugnande doft för hundar / Calming scent diffuser for dogs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header container">
+    <div class="brand">
+      <h1>🐾 Calm Paws</h1>
+      <p class="small" data-lang-sv>– Lugnande doftspridare för hundar</p>
+      <p class="small" data-lang-en style="display:none">– Calming scent diffuser for dogs</p>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html" data-lang-sv>Hem</a>
+      <a href="om.html" data-lang-sv>Om</a>
+      <a href="sa-fungerar-det.html" data-lang-sv>Så fungerar det</a>
+      <a href="faq.html" data-lang-sv>FAQ</a>
+      <a href="kontakt.html" data-lang-sv>Kontakt</a>
+      <a href="bestall.html" class="btn" data-lang-sv>Beställ</a>
+
+      <a href="index.html" data-lang-en style="display:none">Home</a>
+      <a href="om.html" data-lang-en style="display:none">About</a>
+      <a href="sa-fungerar-det.html" data-lang-en style="display:none">How it works</a>
+      <a href="faq.html" data-lang-en style="display:none">FAQ</a>
+      <a href="kontakt.html" data-lang-en style="display:none">Contact</a>
+      <a href="bestall.html" class="btn" data-lang-en style="display:none">Order</a>
+    </nav>
+
+    <div class="langswitch">
+      <button id="sv-btn" class="active">🇸🇪</button>
+      <button id="en-btn">🇬🇧</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="left">
+        <span class="badge" data-lang-sv>Ny – Lugna nerver</span>
+        <span class="badge" data-lang-en style="display:none">New – Calm nerves</span>
+
+        <h2 data-lang-sv>En mild doft som hjälper din hund att slappna av</h2>
+        <h2 data-lang-en style="display:none">A gentle scent that helps your dog relax</h2>
+
+        <p class="small" data-lang-sv>Perfekt för åska, fyrverkerier, resor eller oroliga stunder. Enkel att använda och full av naturliga, lugnande toner.</p>
+        <p class="small" data-lang-en style="display:none">Perfect for thunder, fireworks, travel or anxious moments. Easy to use, packed with natural calming notes.</p>
+
+        <div style="margin-top:18px">
+          <span class="price" data-lang-sv>Pris: 249 kr</span>
+          <span class="price" data-lang-en style="display:none">Price: 249 SEK</span>
+          <div class="small">Frakt tillkommer / Shipping extra</div>
+        </div>
+
+        <div style="margin-top:18px">
+          <a href="bestall.html" class="btn" data-lang-sv>Beställ & Betala</a>
+          <a href="bestall.html" class="btn" data-lang-en style="display:none">Order & Pay</a>
+          <a href="om.html" class="btn ghost" style="margin-left:10px" data-lang-sv>Läs mer</a>
+          <a href="om.html" class="btn ghost" style="margin-left:10px;display:none" data-lang-en>Learn more</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="card">
+          <img src="bilder/calmpaws.jpg" alt="Calm Paws" class="prod-img">
+          <div style="text-align:left;margin-top:12px">
+            <div class="small" data-lang-sv>Calm Paws – 30 ml diffuser</div>
+            <div class="price">249 kr</div>
+            <div style="margin-top:10px">
+              <a href="bestall.html" class="btn" data-lang-sv>Beställ</a>
+              <a href="bestall.html" class="btn" data-lang-en style="display:none">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid">
+        <div class="card">
+          <h3 data-lang-sv>Naturlig & säker</h3>
+          <h3 data-lang-en style="display:none">Natural & safe</h3>
+          <p class="small" data-lang-sv>Calm Paws innehåller milda doftnoter från växter som är kända för sin lugnande effekt.</p>
+          <p class="small" data-lang-en style="display:none">Calm Paws contains mild plant-based scent notes known for their calming effects.</p>
+        </div>
+        <div class="card">
+          <h3 data-lang-sv>Enkel att använda</h3>
+          <h3 data-lang-en style="display:none">Easy to use</h3>
+          <p class="small" data-lang-sv">Sätt i refill eller droppa några ml i din diffuser — klart!</p>
+          <p class="small" data-lang-en style="display:none">Insert refill or add a few ml to your diffuser — done!</p>
+        </div>
+        <div class="card">
+          <h3 data-lang-sv>Snabb leverans</h3>
+          <h3 data-lang-en style="display:none">Fast delivery</h3>
+          <p class="small" data-lang-sv">Vi skickar snabbt så att lugnet kommer på besök.</p>
+          <p class="small" data-lang-en style="display:none">We ship quickly so calm arrives soon.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div data-lang-sv>© 2025 Calm Paws — Lugnande doftspridare för hundar</div>
+    <div data-lang-en style="display:none">© 2025 Calm Paws — Calming scent diffuser for dogs</div>
+  </footer>
+
+<script>
+// Simple language switcher stored in localStorage
+function setLang(lang){
+  document.querySelectorAll('[data-lang-sv]').forEach(function(el){ el.style.display = (lang==='sv'?'':'none'); });
+  document.querySelectorAll('[data-lang-en]').forEach(function(el){ el.style.display = (lang==='en'?'':'none'); });
+  document.getElementById('sv-btn').classList.toggle('active', lang==='sv');
+  document.getElementById('en-btn').classList.toggle('active', lang==='en');
+  localStorage.setItem('calmpaws_lang', lang);
+}
+document.getElementById('sv-btn').addEventListener('click',function(){ setLang('sv'); });
+document.getElementById('en-btn').addEventListener('click',function(){ setLang('en'); });
+document.addEventListener('DOMContentLoaded', function(){
+  const lang = localStorage.getItem('calmpaws_lang') || 'sv';
+  setLang(lang);
+});
+</script>
+</body>
+</html>

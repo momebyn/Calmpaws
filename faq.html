@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="sv">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <header class="header container">
+    <div class="brand"><h1>🐾 Calm Paws</h1></div>
+    <nav class="nav">
+      <a href="index.html" data-lang-sv>Hem</a>
+      <a href="om.html" data-lang-sv>Om</a>
+      <a href="sa-fungerar-det.html" data-lang-sv>Så fungerar det</a>
+      <a href="faq.html" data-lang-sv>FAQ</a>
+      <a href="kontakt.html" data-lang-sv>Kontakt</a>
+      <a href="bestall.html" class="btn" data-lang-sv>Beställ</a>
+
+      <a href="index.html" data-lang-en style="display:none">Home</a>
+      <a href="om.html" data-lang-en style="display:none">About</a>
+      <a href="sa-fungerar-det.html" data-lang-en style="display:none">How it works</a>
+      <a href="faq.html" data-lang-en style="display:none">FAQ</a>
+      <a href="kontakt.html" data-lang-en style="display:none">Contact</a>
+      <a href="bestall.html" class="btn" data-lang-en style="display:none">Order</a>
+    </nav>
+    <div class="langswitch">
+      <button id="sv-btn" class="active">🇸🇪</button>
+      <button id="en-btn">🇬🇧</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section card">
+      <h2 data-lang-sv>Vanliga frågor</h2>
+      <h2 data-lang-en style="display:none">Frequently Asked Questions</h2>
+
+      <h4 data-lang-sv>Är Calm Paws säkert för valpar?</h4>
+      <h4 data-lang-en style="display:none">Is Calm Paws safe for puppies?</h4>
+      <p class="small" data-lang-sv>Ja, produkten är framtagen för att vara mild. Rådfråga veterinär vid osäkerhet.</p>
+      <p class="small" data-lang-en style="display:none">Yes, the product is formulated to be gentle. Consult your vet if unsure.</p>
+
+      <h4 data-lang-sv>Hur länge räcker en refill?</h4>
+      <h4 data-lang-en style="display:none">How long does a refill last?</h4>
+      <p class="small" data-lang-sv>Vanligtvis 4–6 veckor beroende på användning.</p>
+      <p class="small" data-lang-en style="display:none">Typically 4–6 weeks depending on usage.</p>
+    </section>
+  </main>
+
+  <footer class="footer container"><div data-lang-sv>© 2025 Calm Paws</div><div data-lang-en style="display:none">© 2025 Calm Paws</div></footer>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-lang-sv]').forEach(function(el){ el.style.display = (lang==='sv'?'':'none'); });
+  document.querySelectorAll('[data-lang-en]').forEach(function(el){ el.style.display = (lang==='en'?'':'none'); });
+  document.getElementById('sv-btn').classList.toggle('active', lang==='sv');
+  document.getElementById('en-btn').classList.toggle('active', lang==='en');
+  localStorage.setItem('calmpaws_lang', lang);
+}
+document.getElementById('sv-btn').addEventListener('click',function(){ setLang('sv'); });
+document.getElementById('en-btn').addEventListener('click',function(){ setLang('en'); });
+document.addEventListener('DOMContentLoaded', function(){ const lang = localStorage.getItem('calmpaws_lang') || 'sv'; setLang(lang); });
+</script>
+</body>
+</html>
